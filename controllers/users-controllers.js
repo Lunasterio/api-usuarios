@@ -42,3 +42,15 @@ export const addUser = (req, res) => {
     writeData(data);
     res.json({ message: "Usuario actualizado correctamente" });
   };
+
+  export const getUser = (req, res) => {
+    const data = readData();
+    const userEmail = req.params.correo; // Obtiene el índice del zapato de la solicitud
+  
+    if (userEmail) {
+      const user = data.users.find((usuario) => usuario.correo === userEmail);;
+      res.json(user); // Devuelve solo el zapato especificado
+    } else {
+      res.json({ status: 404, mensaje: 'Usuario no existe' }); // Indica error si el índice es inválido
+    }
+  };

@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from "body-parser";
 
-import { getUsers, addUser, updateUser } from './controllers/users-controllers.js';
+import { getUsers, getUser, addUser, updateUser } from './controllers/users-controllers.js';
 
 const app = express();
 const puerto = 3001;
@@ -16,6 +16,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/users", getUsers);
+
+app.get("/users/:correo", getUser);
 
 app.post("/users/add", addUser);
 
