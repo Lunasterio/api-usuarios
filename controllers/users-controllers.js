@@ -22,7 +22,7 @@ export const addUser = (req, res) => {
     const data = readData();
     const body = req.body;
     const newUser = {
-      id: data.users.length + 1,
+      id: data.users.length,
       ...body,
     };
     data.users.push(newUser);
